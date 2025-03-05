@@ -1,25 +1,267 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru-RU">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="icon" href="img/icon.svg" type="img/svg+xml">
-  <link rel="icon" href="img/icon.png" type="img/png+xml">
+  <link rel="icon" href="img/icon.png" type="img/png">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
   <title>C-Money</title>
 </head>
 <body>
-  <header>
+  <header class="header">
+    <div class="header__container container">
+      <a class="header__link" href="/">
+        <img src="img/logo/logo-header.svg" alt="Логотип C-Money, состоящий из двух квадратных элементов с закругленными углами в фиолетовом и сиреневом цветах и названием компании">       
+      </a>
 
+      <nav class="header__nav nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="#advantages">Почему с нами выгодно?</a>
+          </li>
+
+          <li class="nav__item">
+            <a class="nav__link" href="#registration">Регистрация</a>
+          </li>
+
+          <li class="nav__item">
+            <a class="nav__link" href="#reviews">Отзывы</a>
+          </li>
+        </ul>
+      </nav>
+
+      <button class="header__burger burger" aria-label="бургер-меню">
+        <span class="burger__line"></span>
+      </button>
+    </div>
   </header>
 
   <main>
+    <section class="hero" id="hero">
+      <div class="hero__container container">
+        <h1 class="hero__title">Платформа C-Money</h1>
 
+        <p class="hero__description">Удобная платформа для хранения счётов, перевода валюты и&nbsp;покупки криптовалюты</p>
+
+        <a class="hero__link-button" href="#registration">Зарегистрироваться</a>
+      </div>
+    </section>
+
+    <section class="advantages" id="advantages">
+      <div class="advantages__container container">
+        <h2 class="advantages__title">advantages</h2>
+
+        <ul class="advantages__list">
+          <li class="advantages__item">
+            <h3 class="advantages__item-title">Статистика</h3>
+            <p class="advantages__item-description">можно быстро отследить статистику доходов и&nbsp;расходов</p>
+          </li>
+
+          <li class="advantages__item">
+            <h3 class="advantages__item-title">Надёжность</h3>
+            <p class="advantages__item-description">с&nbsp;нами ваши счета в&nbsp;безопасности</p>
+          </li>
+
+          <li class="advantages__item">
+            <h3 class="advantages__item-title">Обмен валюты</h3>
+            <p class="advantages__item-description">обмен валюты по&nbsp;самому выгодному курсу</p>
+          </li>
+
+          <li class="advantages__item">
+            <h3 class="advantages__item-title">Удобство</h3>
+            <p class="advantages__item-description">удобная платформа для отслежки счётов</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="registration" id="registration">
+      <div class="registration__container container">
+        <h2 class="registration__title">Как зарегистрироваться на&nbsp;платформе</h2>
+
+        <p class="registration__description">Пошагово заполните все поля формы</p>
+
+        <ol class="registration__steps-list">
+          <li class="registration__step" aria-label="Шаг 1"></li>
+          <li class="registration__step" aria-label="Шаг 2"></li>
+          <li class="registration__step" aria-label="Шаг 3"></li>
+        </ol>
+
+        <form class="registration__form registration-form">
+          <fieldset class="registration-form__fieldset registration-form__fieldset--personal">
+            <label for="name">Имя</label>
+            <input class="registration-form__input" type="text" name="name" id="name" required>
+
+            <label for="surname">Фамилия</label>
+            <input class="registration-form__input" type="text" name="surname" id="surname" required>
+
+            <label for="patronymic">Отчество</label>
+            <input class="registration-form__input" type="text" name="patronymic" id="patronymic" required>
+
+            <button class="registration-form__button" type="button">Далее</button>
+          </fieldset>
+
+          <fieldset class="registration-form__fieldset registration-form__fieldset--contacts" disabled>
+            <label for="phone">Телефон</label>
+            <input class="registration-form__input" type="tel" name="phone" id="phone" required>
+
+            <label for="email">Электронная почта</label>
+            <input class="registration-form__input" type="email" name="email" id="email" required>
+
+            <button class="registration-form__button" type="button">Далее</button>
+          </fieldset>
+
+          <fieldset class="registration-form__fieldset registration-form__fieldset--auth" disabled>
+            <label for="login">Придумайте логин</label>
+            <input class="registration-form__input" type="text" name="login" id="login" required>
+
+            <label for="password">Придумайте пароль</label>
+            <input class="registration-form__input" type="password" name="password" id="password" autocomplete="off" required>
+
+            <label for="password-repeated">Повторите пароль</label>
+            <input class="registration-form__input" type="password" name="password-repeated" id="password-repeated" autocomplete="off" required>
+
+            <button class="registration-form__button" type="submit">Зарегистрироваться</button>
+          </fieldset>
+        </form>
+
+        <div class="registration__success-message success-message">
+          <img class="success-message__img" src="../src/img/success.svg" alt="Зеленая иконка с галочкой, символизирующая успешную регистрацию">
+
+          <h2 class="success-message__title">Вы&nbsp;успешно зарегистрировались на&nbsp;платформе C-Money!</h2>
+
+          <p class="success-message__text">
+            Ссылка для входа в&nbsp;личный кабинет отправлена на&nbsp;вашу электронную почту (не&nbsp;забудьте проверить папку &laquo;Спам&raquo;)
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="reviews" id="reviews">
+      <div class="reviews__container container">
+        <h2 class="reviews__title">Отзывы наших клиентов</h2>
+
+        <div class="slider" role="region" aria-live="polite">
+          <div class="slider__wrapper">
+            <div class="slider__item">
+              <img src="../src/img/users/user-1.jpg" alt="аватар пользователя, оставившего отзыв">
+              <p class="slider__user-name">Юлия С</p>
+              <p class="slider__review">"Очень удобная платформа для открытия мультивалютных счётов"</p>
+            </div>
+
+            <div class="slider__item">
+              <img src="../src/img/users/user-2.jpg" alt="аватар пользователя, оставившего отзыв">
+              <p class="slider__user-name">Светлана Н</p>
+              <p class="slider__review">"Пользуюсь платформой уже больше года, нравится, что можно быстро менять валюту по&nbsp;выгодному курсу"</p>
+            </div>
+
+            <div class="slider__item">
+              <img src="../src/img/users/user-3.jpg" alt="аватар пользователя, оставившего отзыв">
+              <p class="slider__user-name">Сергей А</p>
+              <p class="slider__review">"Открыл счёт в&nbsp;биткоинах, могу быстро следить за&nbsp;курсом и&nbsp;делать обмен"</p>
+            </div>
+          </div>
+
+          <button class="slider__button slider__button--prev" aria-label="предыдущий слайд">
+            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_45_29996)">
+                <path d="M29.1666 12.5L32.1041 15.4375L22.5625 25L32.1041 34.5625L29.1666 37.5L16.6666 25L29.1666 12.5Z" fill="#6E479E"/>
+              </g>
+              <defs>
+                <clippath id="clip0_45_29996">
+                  <rect width="50" height="50" fill="white" transform="matrix(-1 0 0 1 50 0)"/>
+                </clippath>
+              </defs>
+            </svg>
+          </button>
+
+          <button class="slider__button slider__button--next" aria-label="следующий слайд">
+            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_45_29993)">
+                <path d="M20.8333 12.5L17.8958 15.4375L27.4374 25L17.8958 34.5625L20.8333 37.5L33.3333 25L20.8333 12.5Z" fill="#6E479E"/>
+              </g>
+              <defs>
+              <clippath id="clip0_45_29993">
+                <rect width="50" height="50" fill="white"/>
+              </clippath>
+              </defs>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer>
+  <footer class="footer">
+    <div class="footer__container container">
+      <a class="footer__link" href="/">
+        <img src="img/logo/logo-footer.svg" alt="Логотип C-Money, состоящий из двух квадратных элементов с закругленными углами в белом цвете и названием компании">       
+      </a>
 
+      <nav class="footer__nav nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="#hero">О&nbsp;компании</a>
+          </li>
+
+          <li class="nav__item">
+            <a class="nav__link" href="#reviews">Отзывы</a>
+          </li>
+
+          <li class="nav__item">
+            <a class="nav__link" href="#registration">Регистрация</a>
+          </li>
+
+          <li class="nav__item">
+            <a class="nav__link" href="#advantages">Почему с нами выгодно?</a>
+          </li>
+        </ul>
+      </nav>
+
+      <ul class="footer__contacts">Контакты
+        <li class="footer__contact">+7 921 347-49-97</li>
+
+        <li class="footer__contact">C-Money@gmail.com</li>
+
+        <li class="footer__contact">г.Москва ул.Новослободская 120/2 54</li>
+
+        <!--toDO  currentColor-->
+        <li class="footer__contact footer__contact--social">
+          <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Телеграм">
+            <circle cx="23" cy="23" r="23" fill="white"/>
+            <path d="M31.665 14.7169L13.935 21.5539C12.725 22.0399 12.732 22.7149 13.713 23.0159L18.265 24.4359L28.797 17.7909C29.295 17.4879 29.75 17.6509 29.376 17.9829L20.843 25.6839H20.841L20.843 25.6849L20.529 30.3769C20.989 30.3769 21.192 30.1659 21.45 29.9169L23.661 27.7669L28.26 31.1639C29.108 31.6309 29.717 31.3909 29.928 30.3789L32.947 16.1509C33.256 14.9119 32.474 14.3509 31.665 14.7169Z" fill="#6E479E"/>
+          </svg>
+
+          <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Твиттер">
+            <circle cx="23" cy="23" r="23" fill="white"/>
+            <path d="M34.643 15.937C33.808 16.307 32.911 16.557 31.968 16.67C32.941 16.0877 33.669 15.1714 34.016 14.092C33.1019 14.6349 32.1014 15.0172 31.058 15.222C30.3564 14.4728 29.4271 13.9763 28.4143 13.8094C27.4016 13.6426 26.3621 13.8147 25.4572 14.2992C24.5524 14.7837 23.8328 15.5533 23.4102 16.4887C22.9875 17.424 22.8855 18.4727 23.12 19.472C21.2677 19.379 19.4556 18.8975 17.8014 18.0589C16.1472 17.2202 14.6879 16.0431 13.518 14.604C13.118 15.294 12.888 16.094 12.888 16.946C12.8876 17.713 13.0764 18.4682 13.4379 19.1447C13.7993 19.8212 14.3222 20.398 14.96 20.824C14.2203 20.8004 13.4969 20.6005 12.85 20.241V20.301C12.8499 21.3767 13.222 22.4193 13.9032 23.252C14.5843 24.0846 15.5326 24.6559 16.587 24.869C15.9008 25.0547 15.1813 25.082 14.483 24.949C14.7805 25.8746 15.36 26.684 16.1404 27.2639C16.9208 27.8438 17.8629 28.1651 18.835 28.183C17.1848 29.4784 15.1469 30.181 13.049 30.178C12.6774 30.1781 12.3061 30.1564 11.937 30.113C14.0665 31.4821 16.5454 32.2088 19.077 32.206C27.647 32.206 32.332 25.108 32.332 18.952C32.332 18.752 32.327 18.55 32.318 18.35C33.2293 17.6909 34.0159 16.8749 34.641 15.94L34.643 15.937Z" fill="#6E479E"/>
+          </svg>
+        </li>
+      </ul>
+      <!--toDO  вынести стили--> 
+      <div id="map" style="height: 200px; width: 420px;"></div>
+
+      <div class="footer__copyright">&copy; C-Money, 2025</div>
+    </div>
   </footer>
+
+  <script>
+    const markerCoords = [55.785787, 37.594917];
+    const map = L.map('map').setView(markerCoords, 13); 
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    const marker = L.marker(markerCoords).addTo(map);
+    marker.bindPopup('<b>Москва, ул.Новослободская 120/2 54</b>');
+  
+    map.setView(markerCoords, 16);
+  </script>
 </body>
 </html>
