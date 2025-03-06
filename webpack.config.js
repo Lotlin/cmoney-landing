@@ -50,10 +50,17 @@ module.exports = {
         ],
       },
       {
-        test: /\.(woff2|jpe?g|png|webp|gif|svg)$/i,
+        test: /\.(jpe?g|png|webp|gif|svg)$/i,
         type: 'asset/resource',
         generator: {
           filename: 'assets/[name][ext]',
+        },
+      },
+      {
+        test: /\.woff2$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[name].[ext]',
         },
       },
     ],
