@@ -1,3 +1,14 @@
-@use 'style/normalize';
-@use 'style/fonts';
-@use 'style/style';
+@use 'style/base/normalize';
+@use 'style/base/fonts';
+@use 'style/base/style';
+@use 'style/components/nav';
+@use 'style/components/burger';
+@use 'style/components/slider';
+@use 'style/components/form-registration';
+@use 'style/components/success-message';
+@use 'style/layout/header';
+@use 'style/layout/main/hero';
+@use 'style/layout/main/advantages';
+@use 'style/layout/main/registration';
+@use 'style/layout/main/reviews';
+@use 'style/layout/footer';
