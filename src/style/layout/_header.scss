@@ -7,13 +7,15 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index:100 ;
+  z-index:100;
   padding: 20px 0 36px;
 
   &__container {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    min-height: 38px;
   }
 
   &__nav {
@@ -22,7 +24,7 @@
     &--active {
       display: flex;
       position: absolute;
-      top: 94px;
+      z-index: 50;
     }
 
     @include media-query('lg') {
@@ -31,4 +33,16 @@
       height: 100%;
     }
   }
-  }  
+
+  &__link {
+    position: absolute;
+    z-index: 90;
+    top: 1px;
+  }
+
+  &__burger {
+    position: absolute;
+    z-index: 90;
+    right: 15px;
+  }
+} 

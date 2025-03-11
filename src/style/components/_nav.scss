@@ -3,15 +3,25 @@
 @use "../base/breakpoints" as *;
 
 .nav {
+  &--header {
+    width: 100%;
+    max-width: 1024px;
+    padding-top: 94px;
+  }
+
   &__list {
     &--header {
+      padding-top: 94px;
       padding-bottom: 36px;
+      width: 100%;
+      max-width: 1024px;
       display: flex;
       flex-direction: column;
       gap: 15px;
       font-weight: 700;
       font-size: 15px;
       color: $primary-text;
+      background-color: $secondary-text;
 
       @include media-query('md') {
         gap: 20px;

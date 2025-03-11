@@ -17,7 +17,7 @@
   &__line {
     width: 18px;
     height: 2px;
-    background-color: $primary-text;  // toDo поменять на белый
+    background-color: $secondary-text;
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
   }
 
