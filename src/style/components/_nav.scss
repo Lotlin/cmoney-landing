@@ -1,6 +1,30 @@
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+@use "../base/breakpoints" as *;
+
 .nav {
-  
   &__list {
+    &--header {
+      padding-bottom: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      font-weight: 700;
+      font-size: 15px;
+      color: $primary-text;
+
+      @include media-query('md') {
+        gap: 20px;
+      }
+
+      @include media-query('lg') {
+        flex-direction: row;
+        align-items: center;
+        padding-bottom: 0;
+        color: $primary-text; // toDo поменять на secondary
+        gap: 40px;
+      }
+    }
   }
   
   &__item {
@@ -8,4 +32,4 @@
   
   &__link {
   }
-  }
+}

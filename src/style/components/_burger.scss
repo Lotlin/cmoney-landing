@@ -1,5 +1,45 @@
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+@use "../base/breakpoints" as *;
+
 .burger {
-  
+  width: 24px;
+  height: 24px;
+  padding: 6px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
   &__line {
+    width: 18px;
+    height: 2px;
+    background-color: $primary-text;  // toDo поменять на белый
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
   }
+
+  &--active {
+    .burger__line {
+      background-color: $primary-text;
+    } 
+
+    .burger__line:nth-child(1) {
+      transform: translateY(5px) rotate(45deg);
+    }
+
+    .burger__line:nth-child(2) {
+      opacity: 0; 
+    }
+
+    .burger__line:nth-child(3) {
+      transform: translateY(-5px) rotate(-45deg);
+    }
   }
+
+  @include media-query('lg') {
+    display: none;
+  }
+}

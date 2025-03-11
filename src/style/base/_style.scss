@@ -1,4 +1,9 @@
-@use './var' as *;
+@use './variables' as *;
+@use "./mixins" as *;
+@use "./breakpoints" as *;
+
+// toDo pixel perfect
+
 html {
   position: relative;
   box-sizing: border-box;
@@ -15,8 +20,6 @@ body {
   min-width: 320px;
   min-height: 100vh;
   font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-size: 18px;
-  font-weight: 400;
 }
 
 img,
@@ -51,7 +54,19 @@ fieldset {
 
 .container {
   width: 100%;
-  max-width: 1280px;
-  padding: 0 50px;
-  margin: 0 auto;
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 0 20px; 
+
+  @include media-query('sd') {
+    padding: 0 15px; 
+  }
+
+  @include media-query('md') {
+    padding: 0 94px; 
+  }
+
+  @include media-query('lg') {
+    padding: 0 130px; 
+  }
 }
