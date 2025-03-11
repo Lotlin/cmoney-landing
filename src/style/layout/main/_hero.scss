@@ -1,15 +1,134 @@
-.hero {
-  display: none;
+@use "../../base/variables" as *;
+@use "../../base/mixins" as *;
+@use "../../base/breakpoints" as *;
 
+.hero {
   &__container {
+    position: relative;
+    padding-bottom: 30px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-image:
+        url('@/img/bg-phones-sm.png'),
+        url('@/img/bg-gradient-sm.png');
+      background-repeat: no-repeat;
+      background-position: 0 88px, right top;
+      background-size: 90vw auto, 66vw auto;
+    }
   }
   
   &__title {
+    margin-bottom: 10px;
+    padding-top: 120vw;
+    font-family: $font-secondary;
+    font-weight: 700;
+    font-size: clamp(19px, 6vw, 40px);
+    text-align: center;
+    color: $primary-text;
   }
   
   &__description {
+    width: 100%;
+    max-width: 390px;
+    margin: 0 auto 30px;
+    min-width: 290px;
+    font-weight: 400;
+    font-size: clamp(14px, 4vw, 18px);
+    line-height: 1.3;
+    text-align: center;
+    color: $primary-text;
   }
   
   &__link-button {
+    display: block;
+    font-weight: 700;
+    font-size: clamp(16px, 5vw, 18px);
+    text-align: center;
+    color: $secondary-text;
+    background: $gradient-primary;
+    border-radius: 10px;
+    padding: 14px 64px;
+    max-width: 380px;
+    margin: 0 auto;
   }
+
+  @include media-query('md') {
+    &__container {
+      padding-bottom: 40px;
+
+      &::before {
+        background-image:
+          url('@/img/bg-phones-md.png'),
+          url('@/img/bg-gradient-md.png');
+        background-position: 62px 94px, right top;
+        background-size: 59vw auto, 69vw auto;
+      }
+    }
+    
+    
+    &__title {
+      margin-bottom: 20px;
+      padding-top: 70vw;
+      font-size: 40px;
+    }
+    
+    &__description {
+      max-width: 398px;
+      margin-bottom: 50px;
+      font-size: 18px;
+    }
+    
+    &__link-button {
+      font-size: 18px;
+      padding: 22px 99px;
+    }
   }
+
+  @include media-query('lg') {
+    &__container {
+      padding-bottom: 46px;
+
+      &::before {
+        background-image:
+          url('@/img/bg-phones-lg.png'),
+          url('@/img/bg-gradient-lg.png');
+        background-position: 524px 112px, right top;
+        background-size: 454px auto, 758px auto;
+      }
+    }
+    
+    &__title {
+      padding-top: 270px;
+      text-align: left;
+    }
+    
+    &__description {
+      max-width: 380px;
+      text-align: left;
+      margin: 0 0 50px;
+    }
+    
+    &__link-button {
+      margin: 0;
+      font-size: 18px;
+      padding: 22px 99px;
+    }
+  }
+
+  @include media-query('xl') {
+    &__container {
+      min-height: 605px;
+      &::before {
+        background-image:
+          url('@/img/bg-phones-xl.png'),
+          url('@/img/bg-gradient-xl.png');
+        background-position: 554px 98px, calc(100% + 130px) top;
+        background-size: 550px 494px, 916px auto;
+      }
+    }
+  }
+}

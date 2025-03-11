@@ -7,13 +7,17 @@
     width: 100%;
     max-width: 1024px;
     padding-top: 94px;
+
+    @include media-query('lg') {
+      flex-basis: 414px;
+      padding-top: 0;
+    }
   }
 
   &__list {
     &--header {
       padding-top: 94px;
       padding-bottom: 36px;
-      width: 100%;
       max-width: 1024px;
       display: flex;
       flex-direction: column;
@@ -28,18 +32,15 @@
       }
 
       @include media-query('lg') {
+        padding-top: 0;
+        padding-bottom: 0;
         flex-direction: row;
         align-items: center;
         padding-bottom: 0;
-        color: $primary-text; // toDo поменять на secondary
+        background-color: transparent;
+        color: $secondary-text;
         gap: 40px;
       }
     }
-  }
-  
-  &__item {
-  }
-  
-  &__link {
   }
 }
