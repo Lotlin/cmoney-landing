@@ -56,10 +56,10 @@ fieldset {
   width: 100%;
   max-width: 1440px; 
   margin: 0 auto; 
-  padding: 0 20px; 
+  padding: 0 15px;
 
-  @include media-query('sd') {
-    padding: 0 15px; 
+  @include media-query('sm') {
+    padding: 0 clamp(15px, 4.6vw, 94px);
   }
 
   @include media-query('md') {
@@ -67,7 +67,7 @@ fieldset {
   }
 
   @include media-query('lg') {
-    padding: 0 22px; 
+    padding: 0 clamp(22px, 2vw, 50px);
   }
 
   @include media-query('xl') {
