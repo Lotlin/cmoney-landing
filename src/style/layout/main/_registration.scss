@@ -1,24 +1,129 @@
-.registration {
-  display: none;
+@use "../../base/variables" as *;
+@use "../../base/mixins" as *;
+@use "../../base/breakpoints" as *;
 
+.registration {
   &__container {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: $light-background;
   }
   
   &__title {
+    margin-bottom: 10px;
+    font-family: $font-secondary;
+    font-size: 19px;
+    font-weight: 700;
+    color: $primary-text;
   }
   
   &__description {
+    width: 100%;
+    max-width: 210px;
+    margin-bottom: 25px;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.2;
+    color: $primary-text;
   }
   
   &__steps-list {
+    width: 140px;
+    margin: 0 auto 10px;
+    display: flex;
+    justify-content: space-between;
+    counter-reset: my-counter;
   }
   
   &__step {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    counter-increment: my-counter;
+    width: 33px;
+    height: 33px;
+    background-color: $secondary-text;
+    border-radius: 50%;
+    border: 1px solid $light-border;
+
+    &::before {
+      content: counter(my-counter); 
+      font-weight: 400;
+      font-size: 18px;
+      color: $light-border;
+    }
+
+    &--active {
+      border: 1px solid $dark-border;
+
+      &::before {
+        color: $dark-border;
+      }
+    }
   }
+
+  @include media-query('md') {
+    &__container {
+      padding-top: 60px;
+      padding-bottom: 60px;
+    }
+    
+    &__title {
+      max-width: 580px;
+      margin-bottom: 20px;
+      font-size: 40px;
+    }
+    
+    &__description {
+      max-width: 100%;
+      margin-bottom: 50px;
+      font-size: 24px;
+    }
+    
+    &__steps-list {
+      width: 230px;
+      margin-bottom: 40px;
+    }
+    
+    &__step {
+      width: 50px;
+      height: 50px;
   
-  &__form {
+      &::before {
+        font-size: 30px;
+      }
+    }
   }
-  
-  &__success-message {
+
+  @include media-query('lg') {
+    &__container {
+      padding-top: 70px;
+      padding-bottom: 70px;
+    }
+    
+    &__title {
+      max-width: 780px;
+      margin-bottom: 30px;
+    }
+    
+    &__description {
+      margin-bottom: 68px;
+    }
+  }
+
+  @include media-query('xl') {
+    &__container {
+      padding-top: 70px;
+      padding-bottom: 70px;
+    }
+    
+    &__title {
+      max-width: 780px;
+      margin-bottom: 30px;
+    }
+    
+    &__description {
+      margin-bottom: 68px;
+    }
   }
 }

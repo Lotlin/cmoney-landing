@@ -14,6 +14,8 @@ html {
 *::before,
 *::after {
   box-sizing: inherit;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -38,7 +40,7 @@ a {
   color: inherit;
 }
 
-ul {
+ul, ol {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -50,6 +52,36 @@ h3,
 p,
 fieldset {
   margin: 0;
+}
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  min-inline-size: unset;
+}
+
+input, textarea, select {
+  width: 100%;
+}
+
+input, textarea, select, button {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+textarea {
+  resize: vertical;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button, input[type="submit"] {
+  border: none;
+  background: none;
 }
 
 .container {
@@ -72,5 +104,6 @@ fieldset {
 
   @include media-query('xl') {
     padding: 0 50px; 
+    overflow: hidden;
   }
 }
