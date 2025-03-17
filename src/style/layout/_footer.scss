@@ -1,27 +1,135 @@
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+@use "../base/breakpoints" as *;
+
 .footer {
-  display: none;
   &__container {
+    padding-top: 40px;
+    padding-bottom: 13px;
+    background: $gradient-primary;
+    color: $secondary-text;
   }
   
   &__link {
+    display: inline-block;
+    margin-bottom: 30px;
   }
   
   &__nav {
+    margin-bottom: 20px;
   }
   
   &__contacts {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.3;
   }
   
-  &__contact {
-  
-  &--social {
-  }
+  &__social {
+    margin-bottom: 30px;
+    max-width: 110px;
+    display: flex;
+    justify-content: space-between;
   }
 
   &__map {
-
+    width: 100%;
+    min-height: 180px;
+    height: 56vw;
+    margin: 0 auto 40px;
   }
   
   &__copyright {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.3;
   }
+
+  @include media-query('md') {
+    &__container {
+      padding-top: 60px;
+      padding-bottom: 26px;
+      display: grid;
+      grid-template-columns: 220px 330px;
+      grid-template-rows: 48px 180px 66px 290px 23px;
+      grid-template-areas: 
+      "logo ."
+      "navigation contacts"
+      ". social"
+      "map map"
+      "copyright .";
+      gap: 20px;
+      justify-content: center;
+    }
+    
+    &__link {
+      grid-area: logo;
+      margin-bottom: 0;
+    }
+    
+    &__nav {
+      grid-area: navigation;
+      margin-bottom: 0;
+    }
+    
+    &__contacts {
+      grid-area: contacts;
+      margin-bottom: 0;
+      row-gap: 20px;
+      font-size: 18px;
+    }
+    
+    &__social {
+      grid-area: social;
+      margin-bottom: 0;
+      align-self: flex-start;
+    }
+  
+    &__map {
+      grid-area: map;
+      width: 100%;
+      height: 260px;
+      margin: 0 auto;
+    }
+    
+    &__copyright {
+      grid-area: copyright;
+      font-size: 18px;
+    }
   }
+
+  @include media-query('lg') {
+    &__container {
+      padding-top: 70px;
+      padding-bottom: 55px;
+      display: grid;
+      grid-template-columns: 164px 220px 181px 355px;
+      grid-template-rows: 196px 46px 23px;
+      grid-template-areas: 
+      "logo navigation contacts map"
+      ". . social map"
+      "copyright copyright . .";
+      gap: 7px 20px;
+    }
+
+    &__map {
+      height: 200px;
+    }
+  }
+
+  @include media-query('xl') {
+    &__container {
+      grid-template-columns: 184px 264px 264px 420px;
+      grid-template-rows: 176px 56px 23px;
+      gap: 20px 16px;
+    }
+
+    &__map {
+      height: 200px;
+    }
+  }
+}
