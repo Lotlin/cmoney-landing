@@ -9,13 +9,17 @@
   transition: transform 0.3s ease-in-out;
   
   &__item {
+    display: none;
     max-width: 190px;
     margin: 0 auto;
-    display: flex;
     flex-direction: column;
     column-gap: 10px;
     align-items: center;
     text-align: center;
+
+    &--active {
+      display: flex;
+    }
   }
 
   &__img {
