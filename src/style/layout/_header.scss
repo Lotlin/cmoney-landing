@@ -1,7 +1,6 @@
 @use "../base/variables" as *;
 @use "../base/mixins" as *;
 @use "../base/breakpoints" as *;
-// toDO добавить полоску-градиент при активном бургере
 
 .header {
   position: absolute;
@@ -17,10 +16,6 @@
     justify-content: space-between;
     align-items: center;
     min-height: 38px;
-
-    @include media-query('lg') {
-      
-    }
   }
 
   &__nav {
@@ -52,6 +47,10 @@
   &__burger {
     position: absolute;
     z-index: 90;
-    right: 15px;
+    right: 4.6vw;
+
+    @include media-query('md') {
+      right: 94px;
+    }
   }
 } 
