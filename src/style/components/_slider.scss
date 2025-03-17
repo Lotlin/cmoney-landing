@@ -1,23 +1,112 @@
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+@use "../base/breakpoints" as *;
+
 .slider {
-  
-  &__wrapper {
-  }
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  transition: transform 0.3s ease-in-out;
   
   &__item {
+    max-width: 190px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    column-gap: 10px;
+    align-items: center;
+    text-align: center;
+  }
+
+  &__img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
   }
   
   &__user-name {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.3;
+    color: $primary-text;
   }
   
   &__review {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.3;
+    color: $primary-text;
   }
   
   &__button {
+    width: 36px;
+    height: 36px;
+    position: absolute;
+    top: 60px;
   
-  &--prev {
+    &--prev {
+      left: 0;
+    }
+    
+    &--next {
+      right: 0;
+    }
   }
+
+  @include media-query('md') {
+    width: 100%; 
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 0 56px; 
+    
+    &__item {
+      max-width: 224px;
+    }
+
+    &__user-name {
+      font-size: 18px;
+    }
+    
+    &__review {
+      max-width: 220px;
+      font-size: 18px;
+    }
+    
+    &__button {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      top: 90px;
+    }
+  }
+
+  @include media-query('lg') {
+    grid-template-columns: repeat(3, 1fr);
+    
+    &__item {
+      max-width: 300px;
+    }
   
-  &--next {
+    &__img {
+      width: 140px;
+      height: 140px;
+    }
+    
+    &__user-name {
+      font-size: 18px;
+    }
+    
+    &__review {
+      max-width: 260px;
+      font-size: 18px;
+    }
+    
+    &__button {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      top: 100px;
+    }
   }
-  }
-  }
+}
