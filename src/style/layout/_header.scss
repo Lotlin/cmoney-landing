@@ -19,15 +19,23 @@
   }
 
   &__nav {
-    display: none;
+    opacity: 0;
+    position: absolute;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 
     &--active {
       display: flex;
+      opacity: 1;
+      visibility: visible;
       position: absolute;
       z-index: 50;
     }
 
     @include media-query('lg') {
+      position: static;
+      opacity: 1;
+      visibility: visible;
       display: flex;
       align-items: center;
       height: 100%;
