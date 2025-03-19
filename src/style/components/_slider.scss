@@ -6,8 +6,9 @@
   position: relative;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
   transition: transform 0.3s ease-in-out;
-  
+
   &__item {
     display: none;
     max-width: 190px;
@@ -17,7 +18,7 @@
     align-items: center;
     text-align: center;
 
-    &--active {
+    &:nth-child(1) {
       display: flex;
     }
   }
@@ -66,6 +67,10 @@
     
     &__item {
       max-width: 224px;
+
+      &:nth-child(2) {
+        display: flex;
+      }
     }
 
     &__user-name {
@@ -90,6 +95,10 @@
     
     &__item {
       max-width: 300px;
+
+      &:nth-child(3) {
+        display: flex;
+      }
     }
   
     &__img {
